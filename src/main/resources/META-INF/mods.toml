@@ -1,0 +1,9 @@
+modLoader="javafml"
+loaderVersion="[28.1]"
+[[mods]]
+modId="bedrocktools2"
+version="1.0"
+displayName="Bedrock Tools 2"
+description='''
+Sequel to my first mod 'Bedrock Tools'
+'''
