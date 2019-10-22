@@ -1,5 +1,6 @@
 package com.tanttinator.bedrocktools2;
 
+import com.tanttinator.bedrocktools2.items.Items;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;

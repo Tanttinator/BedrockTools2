@@ -1,4 +1,9 @@
 {
   "item.bedrocktools2.diamond_stick": "Diamond Stick",
+  "item.bedrocktools2.bedrock_pick": "Bedrock Pickaxe",
+  "item.bedrocktools2.bedrock_axe": "Bedrock Axe",
+  "item.bedrocktools2.bedrock_shovel": "Bedrock Shovel",
+  "item.bedrocktools2.bedrock_hoe": "Bedrock Hoe",
+  "item.bedrocktools2.bedrock_sword": "Bedrock Sword",
   "itemGroup.bedrocktools2": "Bedrock Tools 2"
 }
