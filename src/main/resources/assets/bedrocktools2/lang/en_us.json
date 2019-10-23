@@ -5,5 +5,9 @@
   "item.bedrocktools2.bedrock_shovel": "Bedrock Shovel",
   "item.bedrocktools2.bedrock_hoe": "Bedrock Hoe",
   "item.bedrocktools2.bedrock_sword": "Bedrock Sword",
+  "item.bedrocktools2.bedrock_helmet": "Bedrock Helmet",
+  "item.bedrocktools2.bedrock_chestplate": "Bedrock Chestplate",
+  "item.bedrocktools2.bedrock_leggings": "Bedrock Leggings",
+  "item.bedrocktools2.bedrock_boots": "Bedrock Boots",
   "itemGroup.bedrocktools2": "Bedrock Tools 2"
 }

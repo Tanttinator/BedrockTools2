@@ -1,6 +1,6 @@
 package com.tanttinator.bedrocktools2;
 
-import com.tanttinator.bedrocktools2.items.Items;
+import com.tanttinator.bedrocktools2.items.BT2Items;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -13,7 +13,7 @@ public class BedrockTools2 {
     public static final ItemGroup group = new ItemGroup("bedrocktools2") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.diamond_stick);
+            return new ItemStack(BT2Items.diamond_stick);
         }
     };
 }
