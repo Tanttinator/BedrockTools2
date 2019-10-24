@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "#"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:bedrock"
+    },
+    "#": {
+      "item": "bedrocktools2:diamond_stick"
+    }
+  },
+  "result": {
+    "item": "bedrocktools2:bedrock_shovel"
+  }
+}

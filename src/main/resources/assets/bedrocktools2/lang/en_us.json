@@ -9,5 +9,10 @@
   "item.bedrocktools2.bedrock_chestplate": "Bedrock Chestplate",
   "item.bedrocktools2.bedrock_leggings": "Bedrock Leggings",
   "item.bedrocktools2.bedrock_boots": "Bedrock Boots",
+  "item.bedrocktools2.bedrockium_chunks": "Chunks of Bedrockium",
+  "item.bedrocktools2.bedrockium_blend": "Bedrockium Blend",
+  "item.bedrocktools2.bedrockium_plate": "Bedrockium Plate",
+  "item.bedrocktools2.bedrockium_ore": "Bedrockium Ore",
+  "block.bedrocktools2.bedrockium_ore": "Bedrockium Ore",
   "itemGroup.bedrocktools2": "Bedrock Tools 2"
 }

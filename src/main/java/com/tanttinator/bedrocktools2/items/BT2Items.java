@@ -25,6 +25,10 @@ public class BT2Items {
 
     public static final Item diamond_stick = register(new BT2Item(), "diamond_stick");
 
+    public static final Item bedrockium_chunks = register(new BT2Item(), "bedrockium_chunks");
+    public static final Item bedrockium_blend = register(new BT2Item(), "bedrockium_blend");
+    public static final Item bedrockium_plate = register(new BT2Item(), "bedrockium_plate");
+
     public static final Item bedrock_pick = register(new PickaxeItem(BEDROCK_TIER, 1, -2.8F, new BT2Properties()), "bedrock_pick");
     public static final Item bedrock_axe = register(new AxeItem(BEDROCK_TIER, 8.0F, -3.0F, new BT2Properties()), "bedrock_axe");
     public static final Item bedrock_shovel = register(new ShovelItem(BEDROCK_TIER, 1.5F, -3F, new BT2Properties()), "bedrock_shovel");
@@ -36,7 +40,7 @@ public class BT2Items {
     public static final Item bedrock_leggings = register(new BedrockArmor(EquipmentSlotType.LEGS), "bedrock_leggings");
     public static final Item bedrock_boots = register(new BedrockArmor(EquipmentSlotType.FEET), "bedrock_boots");
 
-    private static Item register(Item item, String name) {
+    public static Item register(Item item, String name) {
         item.setRegistryName(BedrockTools2.MOD_ID, name);
         items.add(item);
         return item;
