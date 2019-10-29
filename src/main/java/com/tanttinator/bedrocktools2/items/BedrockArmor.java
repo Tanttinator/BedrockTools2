@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nonnull;
 
-@Mod.EventBusSubscriber(modid = BedrockTools2.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = BedrockTools2.MOD_ID)
 public class BedrockArmor extends ArmorItem {
     public BedrockArmor(EquipmentSlotType slot) {
         super(BT2Items.BEDROCK_ARMOR_TIER, slot, new BT2Properties());
@@ -33,19 +33,19 @@ public class BedrockArmor extends ArmorItem {
 
     @SubscribeEvent
     public static void onEquipmentChanged(LivingEquipmentChangeEvent event) {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!ITEM EQUIPPED!!!!!!!!!!!!!!!!!!!!!");
         if(event.getEntity() instanceof PlayerEntity) {
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!WAS PLAYER!!!!!!!!!!!!!!!!!!!!!");
             PlayerEntity entity = (PlayerEntity) event.getEntity();
             if (event.getTo().getItem() instanceof BedrockArmor || event.getFrom().getItem() instanceof  BedrockArmor) {
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!WAS BEDROCK ARMOR!!!!!!!!!!!!!!!!!!!!!");
                 int n = 0;
                 for (ItemStack item : event.getEntity().getArmorInventoryList()) {
                     if (item.getItem() instanceof BedrockArmor) {
                         n++;
                     }
                 }
-                entity.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 1, (int)Math.floor(n / 2.0F), false, false, false));
+                entity.removePotionEffect(Effects.SLOWNESS);
+                if(n > 1) {
+                    entity.addPotionEffect(new EffectInstance(Effects.SLOWNESS, Integer.MAX_VALUE, (int) Math.floor(n / 2.0F) - 1, false, false, false));
+                }
             }
         }
     }
