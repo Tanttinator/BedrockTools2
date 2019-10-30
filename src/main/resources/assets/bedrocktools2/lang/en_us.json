@@ -14,5 +14,14 @@
   "item.bedrocktools2.bedrockium_plate": "Bedrockium Plate",
   "item.bedrocktools2.bedrockium_ore": "Bedrockium Ore",
   "block.bedrocktools2.bedrockium_ore": "Bedrockium Ore",
+  "item.bedrocktools2.bedrockium_pick": "Bedrockium Pickaxe",
+  "item.bedrocktools2.bedrockium_axe": "Bedrockium Axe",
+  "item.bedrocktools2.bedrockium_shovel": "Bedrockium Shovel",
+  "item.bedrocktools2.bedrockium_hoe": "Bedrockium Hoe",
+  "item.bedrocktools2.bedrockium_sword": "Bedrockium Sword",
+  "item.bedrocktools2.bedrockium_helmet": "Bedrockium Helmet",
+  "item.bedrocktools2.bedrockium_chestplate": "Bedrockium Chestplate",
+  "item.bedrocktools2.bedrockium_leggings": "Bedrockium Leggings",
+  "item.bedrocktools2.bedrockium_boots": "Bedrockium Boots",
   "itemGroup.bedrocktools2": "Bedrock Tools 2"
 }
