@@ -2,7 +2,6 @@ package com.tanttinator.bedrocktools2.blocks;
 
 import com.google.common.collect.Lists;
 import com.tanttinator.bedrocktools2.BedrockTools2;
-import com.tanttinator.bedrocktools2.items.BT2Item;
 import com.tanttinator.bedrocktools2.items.BT2Items;
 import com.tanttinator.bedrocktools2.items.BT2Properties;
 import net.minecraft.block.Block;

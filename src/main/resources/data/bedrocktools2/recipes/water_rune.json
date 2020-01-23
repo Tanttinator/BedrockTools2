@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XYX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "Y": {
+      "item": "bedrocktools2:bedrock_tablet"
+    }
+  },
+  "result": {
+    "item": "bedrocktools2:water_rune"
+  }
+}

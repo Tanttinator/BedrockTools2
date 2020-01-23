@@ -1,6 +1,5 @@
 package com.tanttinator.bedrocktools2.items;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 

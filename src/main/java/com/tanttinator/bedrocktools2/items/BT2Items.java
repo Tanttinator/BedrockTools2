@@ -6,7 +6,6 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvents;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -53,6 +52,12 @@ public class BT2Items {
     public static final Item bedrockium_chestplate = register(new BedrockiumArmor(EquipmentSlotType.CHEST), "bedrockium_chestplate");
     public static final Item bedrockium_leggings = register(new BedrockiumArmor(EquipmentSlotType.LEGS), "bedrockium_leggings");
     public static final Item bedrockium_boots = register(new BedrockiumArmor(EquipmentSlotType.FEET), "bedrockium_boots");
+
+    public static final Item bedrock_tablet = register(new BT2Item(), "bedrock_tablet");
+    public static final Item air_rune = register(new BT2Item(), "air_rune");
+    public static final Item earth_rune = register(new BT2Item(), "earth_rune");
+    public static final Item fire_rune = register(new BT2Item(), "fire_rune");
+    public static final Item water_rune = register(new BT2Item(), "water_rune");
 
     public static Item register(Item item, String name) {
         item.setRegistryName(BedrockTools2.MOD_ID, name);

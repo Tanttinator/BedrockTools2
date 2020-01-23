@@ -23,5 +23,10 @@
   "item.bedrocktools2.bedrockium_chestplate": "Bedrockium Chestplate",
   "item.bedrocktools2.bedrockium_leggings": "Bedrockium Leggings",
   "item.bedrocktools2.bedrockium_boots": "Bedrockium Boots",
+  "item.bedrocktools2.bedrock_tablet": "Bedrock Tablet",
+  "item.bedrocktools2.air_rune": "Air Rune",
+  "item.bedrocktools2.earth_rune": "Earth Rune",
+  "item.bedrocktools2.fire_rune": "Fire Rune",
+  "item.bedrocktools2.water_rune": "Water Rune",
   "itemGroup.bedrocktools2": "Bedrock Tools 2"
 }

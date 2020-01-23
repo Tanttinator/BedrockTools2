@@ -2,7 +2,6 @@ package com.tanttinator.bedrocktools2;
 
 import com.tanttinator.bedrocktools2.blocks.BT2Blocks;
 import com.tanttinator.bedrocktools2.items.BT2Items;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
