@@ -42,11 +42,11 @@ public class BT2Items {
     public static final Item bedrock_leggings = register(new BedrockArmor(EquipmentSlotType.LEGS), "bedrock_leggings");
     public static final Item bedrock_boots = register(new BedrockArmor(EquipmentSlotType.FEET), "bedrock_boots");
 
-    public static final Item bedrockium_pick = register(new PickaxeItem(BEDROCKIUM_TIER, 1, -2.8F, new BT2Properties()), "bedrockium_pick");
-    public static final Item bedrockium_axe = register(new AxeItem(BEDROCKIUM_TIER, 8.0F, -3.0F, new BT2Properties()), "bedrockium_axe");
-    public static final Item bedrockium_shovel = register(new ShovelItem(BEDROCKIUM_TIER, 1.5F, -3F, new BT2Properties()), "bedrockium_shovel");
-    public static final Item bedrockium_hoe = register(new HoeItem(BEDROCKIUM_TIER, 0.4F, new BT2Properties()), "bedrockium_hoe");
-    public static final Item bedrockium_sword = register(new SwordItem(BEDROCKIUM_TIER, 3, -2.4F, new BT2Properties()), "bedrockium_sword");
+    public static final Item bedrockium_pick = register(new BedrockiumPickaxe(1, -2.8F), "bedrockium_pick");
+    public static final Item bedrockium_axe = register(new BedrockiumAxe(8.0F, -3.0F), "bedrockium_axe");
+    public static final Item bedrockium_shovel = register(new BedrockiumShovel(1.5F, -3F), "bedrockium_shovel");
+    public static final Item bedrockium_hoe = register(new BedrockiumHoe(0.4F), "bedrockium_hoe");
+    public static final Item bedrockium_sword = register(new BedrockiumSword(3, -2.4F), "bedrockium_sword");
 
     public static final Item bedrockium_helmet = register(new BedrockiumArmor(EquipmentSlotType.HEAD), "bedrockium_helmet");
     public static final Item bedrockium_chestplate = register(new BedrockiumArmor(EquipmentSlotType.CHEST), "bedrockium_chestplate");
@@ -54,10 +54,10 @@ public class BT2Items {
     public static final Item bedrockium_boots = register(new BedrockiumArmor(EquipmentSlotType.FEET), "bedrockium_boots");
 
     public static final Item bedrock_tablet = register(new BT2Item(), "bedrock_tablet");
-    public static final Item air_rune = register(new BT2Item(), "air_rune");
-    public static final Item earth_rune = register(new BT2Item(), "earth_rune");
-    public static final Item fire_rune = register(new BT2Item(), "fire_rune");
-    public static final Item water_rune = register(new BT2Item(), "water_rune");
+    public static final Item air_rune = register(new RuneItem(BedrockTools2.Element.AIR), "air_rune");
+    public static final Item earth_rune = register(new RuneItem(BedrockTools2.Element.EARTH), "earth_rune");
+    public static final Item fire_rune = register(new RuneItem(BedrockTools2.Element.FIRE), "fire_rune");
+    public static final Item water_rune = register(new RuneItem(BedrockTools2.Element.WATER), "water_rune");
 
     public static Item register(Item item, String name) {
         item.setRegistryName(BedrockTools2.MOD_ID, name);

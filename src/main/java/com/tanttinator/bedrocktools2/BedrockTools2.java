@@ -2,8 +2,11 @@ package com.tanttinator.bedrocktools2;
 
 import com.tanttinator.bedrocktools2.blocks.BT2Blocks;
 import com.tanttinator.bedrocktools2.items.BT2Items;
+import com.tanttinator.bedrocktools2.recipes.RuneUpgradeRecipe;
+
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -11,9 +14,11 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.util.text.TextFormatting;
 
 @Mod(BedrockTools2.MOD_ID)
 public class BedrockTools2 {
@@ -27,7 +32,24 @@ public class BedrockTools2 {
         }
     };
 
+    public enum Element {
+        AIR("Air", TextFormatting.YELLOW),
+        EARTH("Earth", TextFormatting.GREEN),
+        FIRE("Fire", TextFormatting.RED),
+        WATER("Water", TextFormatting.BLUE);
+
+        public String name;
+        public TextFormatting color;
+
+        private Element(String name, TextFormatting color) {
+            this.name = name;
+            this.color = color;
+        }
+    }
+
     public BedrockTools2() {
+        DistExecutor.runForDist(() -> () -> new SideProxy.Client(), () -> () -> new SideProxy.Server());
+        IRecipeSerializer.register(RuneUpgradeRecipe.NAME.toString(), RuneUpgradeRecipe.SERIALIZER);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }
 
@@ -38,7 +60,7 @@ public class BedrockTools2 {
         BiomeManager.getBiomes(BiomeManager.BiomeType.WARM).forEach(this::RegisterBedrockiumOre);
     }
 
-    void RegisterBedrockiumOre(BiomeManager.BiomeEntry biomeEntry) {
+    void RegisterBedrockiumOre(final BiomeManager.BiomeEntry biomeEntry) {
         biomeEntry.biome.addFeature(
                 GenerationStage.Decoration.UNDERGROUND_ORES,
                 Biome.createDecoratedFeature(
