@@ -9,3 +9,4 @@ authors="Tanttinator"
 description='''
 Create tools and armor from bedrock! Because I know you always wanted to"
 '''
+updateJSONURL="https://tanttinator.github.io/BedrockTools2/update_checker.json"
