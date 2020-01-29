@@ -2,11 +2,9 @@ package com.tanttinator.bedrocktools2;
 
 import com.tanttinator.bedrocktools2.blocks.BT2Blocks;
 import com.tanttinator.bedrocktools2.items.BT2Items;
-import com.tanttinator.bedrocktools2.recipes.RuneUpgradeRecipe;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -49,7 +47,6 @@ public class BedrockTools2 {
 
     public BedrockTools2() {
         DistExecutor.runForDist(() -> () -> new SideProxy.Client(), () -> () -> new SideProxy.Server());
-        IRecipeSerializer.register(RuneUpgradeRecipe.NAME.toString(), RuneUpgradeRecipe.SERIALIZER);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }
 
