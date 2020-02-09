@@ -75,8 +75,8 @@ public class EventHandlers {
 
     static void AddEffect(PlayerEntity entity, Effect effect, int level) {
         entity.removePotionEffect(effect);
-        EffectInstance instance = new EffectInstance(effect, 0, level, false, false, false);
-        //instance.setPotionDurationMax(true);
+        EffectInstance instance = new EffectInstance(effect, Integer.MAX_VALUE, level, false, false, false);
+        instance.setPotionDurationMax(true);
         entity.addPotionEffect(instance);
     }
 
@@ -86,6 +86,8 @@ public class EventHandlers {
         if(event.getEntity() instanceof PlayerEntity) {
             PlayerEntity entity = (PlayerEntity) event.getEntity();
             Item from = event.getFrom().getItem();
+            ItemStack to = event.getTo();
+
             if(from instanceof BedrockiumArmor) {
                 BedrockiumArmor armor = (BedrockiumArmor)from;
                 IRunes runes = event.getFrom().getCapability(RunesProvider.RUNES, null).orElse(RunesProvider.RUNES.getDefaultInstance());
@@ -122,6 +124,42 @@ public class EventHandlers {
                     case OFFHAND: break;
                 }
             }
+
+            if (to.getItem() instanceof BedrockiumArmor) {
+                BedrockiumArmor armor = (BedrockiumArmor)to.getItem();
+                IRunes runes = to.getCapability(RunesProvider.RUNES, null).orElse(RunesProvider.RUNES.getDefaultInstance());
+                switch(armor.getEquipmentSlot()) {
+                    case HEAD:
+                        if(runes.hasRune(Element.FIRE)) {
+                            AddEffect(entity, Effects.NIGHT_VISION, 0);
+                        }
+                        if(runes.hasRune(Element.AIR)) {
+                            entity.abilities.allowFlying = true;
+                            entity.sendPlayerAbilities();
+                        }
+                    break;
+                    case CHEST:
+                        if(runes.hasRune(Element.EARTH)) {
+                            AddEffect(entity, Effects.HEALTH_BOOST, 4);
+                        }
+                        if(runes.hasRune(Element.AIR)) {
+                            AddEffect(entity, Effects.HASTE, 2);
+                        }
+                    break;
+                    case LEGS:
+                        if(runes.hasRune(Element.AIR)) {
+                            AddEffect(entity, Effects.SPEED, 1);
+                        }
+                    break;
+                    case FEET:
+                        if(runes.hasRune(Element.AIR)) {
+                            AddEffect(entity, Effects.JUMP_BOOST, 4);
+                        }
+                    break;
+                    case MAINHAND: break;
+                    case OFFHAND: break;
+                }
+            }
         }
     }
 
@@ -135,33 +173,35 @@ public class EventHandlers {
         for(ItemStack stack : player.getArmorInventoryList()) {
             if(stack.getItem() instanceof BedrockArmor)
                 bedrockArmor++;
+
             if (stack.getItem() instanceof BedrockiumArmor) {
                 BedrockiumArmor armor = (BedrockiumArmor)stack.getItem();
                 IRunes runes = stack.getCapability(RunesProvider.RUNES, null).orElse(RunesProvider.RUNES.getDefaultInstance());
                 switch(armor.getEquipmentSlot()) {
                     case HEAD:
-                        if(runes.hasRune(Element.FIRE)) {
+                        if(runes.hasRune(Element.FIRE) && !player.isPotionActive(Effects.NIGHT_VISION)) {
                             AddEffect(player, Effects.NIGHT_VISION, 0);
                         }
                         if(runes.hasRune(Element.AIR)) {
                             player.abilities.allowFlying = true;
+                            player.sendPlayerAbilities();
                         }
                     break;
                     case CHEST:
-                        if(runes.hasRune(Element.EARTH)) {
+                        if(runes.hasRune(Element.EARTH) && !player.isPotionActive(Effects.HEALTH_BOOST)) {
                             AddEffect(player, Effects.HEALTH_BOOST, 4);
                         }
-                        if(runes.hasRune(Element.AIR)) {
+                        if(runes.hasRune(Element.AIR) && !player.isPotionActive(Effects.HASTE)) {
                             AddEffect(player, Effects.HASTE, 2);
                         }
                     break;
                     case LEGS:
-                        if(runes.hasRune(Element.AIR)) {
+                        if(runes.hasRune(Element.AIR) && !player.isPotionActive(Effects.SPEED)) {
                             AddEffect(player, Effects.SPEED, 1);
                         }
                     break;
                     case FEET:
-                        if(runes.hasRune(Element.AIR)) {
+                        if(runes.hasRune(Element.AIR) && !player.isPotionActive(Effects.JUMP_BOOST)) {
                             AddEffect(player, Effects.JUMP_BOOST, 4);
                         }
                     break;

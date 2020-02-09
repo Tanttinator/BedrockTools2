@@ -5,6 +5,7 @@ import com.tanttinator.bedrocktools2.BedrockTools2;
 import com.tanttinator.bedrocktools2.items.BT2Items;
 import com.tanttinator.bedrocktools2.items.BT2Properties;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraftforge.event.RegistryEvent;
@@ -21,7 +22,8 @@ public class BT2Blocks {
     private static List<Block> BLOCKS = Lists.newArrayList();
 
     public static final Block bedrockium_ore = register(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(50.0F, 1200.0F).harvestLevel(4)), "bedrockium_ore");
-
+    public static final Block bedrockium_casing = register(new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(10.0f, 12.0f).sound(SoundType.METAL)), "bedrockium_casing");
+    
     public static Block register(Block block, String name) {
         block.setRegistryName(BedrockTools2.MOD_ID, name);
         BLOCKS.add(block);
