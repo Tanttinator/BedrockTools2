@@ -29,5 +29,7 @@
   "item.bedrocktools2.fire_rune": "Fire Rune",
   "item.bedrocktools2.water_rune": "Water Rune",
   "block.bedrocktools2.bedrockium_casing": "Bedrockium Casing",
+  "block.bedrocktools2.bedrockium_drill": "Bedrockium Drill",
+  "block.bedrocktools2.bedrockium_drill_base": "Bedrockium Drill Base",
   "itemGroup.bedrocktools2": "Bedrock Tools 2"
 }

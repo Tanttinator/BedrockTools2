@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "top": "bedrocktools2:block/bedrockium_casing",
+        "bottom": "block/smooth_stone",
+        "side": "bedrocktools2:block/bedrockium_machine_side"
+    }
+}

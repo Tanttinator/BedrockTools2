@@ -1,0 +1,5 @@
+{
+    "variants": {
+      "": {"model": "bedrocktools2:block/bedrockium_drill_base"}
+    }
+}

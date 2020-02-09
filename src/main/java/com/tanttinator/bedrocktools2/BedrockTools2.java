@@ -3,6 +3,9 @@ package com.tanttinator.bedrocktools2;
 import com.tanttinator.bedrocktools2.blocks.BT2Blocks;
 import com.tanttinator.bedrocktools2.items.BT2Items;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
@@ -22,6 +25,8 @@ import net.minecraft.util.text.TextFormatting;
 public class BedrockTools2 {
 
     public static final String MOD_ID = "bedrocktools2";
+
+    public static final Logger log = LogManager.getLogger(MOD_ID);
 
     public static final ItemGroup group = new ItemGroup("bedrocktools2") {
         @Override
