@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "bedrocktools2:item/bedrockium_shovel"
-  }
-}
