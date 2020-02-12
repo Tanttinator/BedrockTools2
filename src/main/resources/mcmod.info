@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bedrocktools2",
+  "name": "Bedrock Tools 2",
+  "description": "Create tools and armor from bedrock! Because I know you always wanted to",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/bedrock-tools-2",
+  "updateUrl": "https://tanttinator.github.io/BedrockTools2/update_checker.json",
+  "authorList": ["Tanttinator"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

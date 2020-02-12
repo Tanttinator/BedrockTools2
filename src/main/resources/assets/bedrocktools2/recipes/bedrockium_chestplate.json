@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "bedrocktools2:bedrockium_plate"
+    }
+  },
+  "result": {
+    "item": "bedrocktools2:bedrockium_chestplate"
+  }
+}

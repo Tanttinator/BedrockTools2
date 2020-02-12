@@ -1,0 +1,5 @@
+{
+	"recipes": {
+		"rune_upgrade": "com.tanttinator.bedrocktools2.recipes.RuneUpgradeRecipe$Factory"
+	}
+}

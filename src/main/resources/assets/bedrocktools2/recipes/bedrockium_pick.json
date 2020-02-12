@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "X": {
+      "item": "bedrocktools2:bedrockium_plate"
+    },
+    "#": {
+      "item": "bedrocktools2:diamond_stick"
+    }
+  },
+  "result": {
+    "item": "bedrocktools2:bedrockium_pick"
+  }
+}
