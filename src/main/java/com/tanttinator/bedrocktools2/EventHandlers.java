@@ -12,8 +12,9 @@ import com.tanttinator.bedrocktools2.items.bedrockium.BedrockiumPickaxe;
 import com.tanttinator.bedrocktools2.items.bedrockium.BedrockiumShovel;
 import com.tanttinator.bedrocktools2.capabilities.IRunes;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -34,18 +35,17 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = BedrockTools2.MOD_ID)
 public class EventHandlers {
 
-    /*@SubscribeEvent
+    @SubscribeEvent
     public static void getBreakSpeed(BreakSpeed speed) {
-        PlayerEntity player = speed.getPlayer();
+        EntityPlayer player = speed.getEntityPlayer();
         ItemStack item = player.getHeldItemMainhand();
         if((item.getItem() instanceof BedrockiumPickaxe || item.getItem() instanceof BedrockiumAxe || item.getItem() instanceof BedrockiumShovel)) {
-            IRunes runes = item.getCapability(RunesProvider.RUNES, null).orElse(RunesProvider.RUNES.getDefaultInstance());
-            if(runes.hasRune(Element.WATER) && player.areEyesInFluid(FluidTags.WATER)) {
+            IRunes runes = item.getCapability(RunesProvider.RUNES, null);
+            if(runes.hasRune(Element.WATER) && player.isInsideOfMaterial(Material.WATER)) {
                 speed.setNewSpeed(speed.getOriginalSpeed() * 5f);
             }
         }
-    }*/
-
+    }
     /*@SubscribeEvent
     public static void getHarvestDrop(BlockEvent.HarvestDropsEvent event) {
         PlayerEntity player = event.getHarvester();
@@ -219,7 +219,7 @@ public class EventHandlers {
     @SubscribeEvent
     public static void onEntityDamaged(LivingHurtEvent event) {
         DamageSource source = event.getSource();
-        EntityLiving target = (EntityLiving) event.getEntityLiving();
+        EntityLivingBase target = (EntityLivingBase) event.getEntityLiving();
         if(source instanceof EntityDamageSource && source.getImmediateSource() != null) {
             for(ItemStack item : target.getArmorInventoryList()) {
                 if(item.getItem() instanceof BedrockiumArmor) {

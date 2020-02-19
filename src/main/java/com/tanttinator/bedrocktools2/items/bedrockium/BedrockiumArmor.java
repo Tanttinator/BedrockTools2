@@ -2,18 +2,12 @@ package com.tanttinator.bedrocktools2.items.bedrockium;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
-
-import javax.annotation.Nonnull;
 
 import com.tanttinator.bedrocktools2.BedrockTools2;
 import com.tanttinator.bedrocktools2.BedrockTools2.Element;
@@ -26,22 +20,12 @@ public class BedrockiumArmor extends ItemArmor implements IUpgradeable {
         super(BT2Items.BEDROCKIUM_ARMOR_MATERIAL, 3, slot);
     }
 
-    /*@Override
-    public String getArmorTexture(@Nonnull ItemStack stack, Entity entity, EquipmentSlotType slot, String layer) {
-
-        String layerId = "1";
-        if (slot == EquipmentSlotType.LEGS) {
-            layerId = "2";
-        }
-        return "bedrocktools2:textures/armor/bedrockium_layer_" + layerId + ".png";
-    }*/
-
-    /*@Override
-    public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         for (BedrockTools2.Element e : IUpgradeable.getUpgrades(stack)) {
-            tooltip.add(new StringTextComponent(e.name).applyTextStyle(e.color));
+            tooltip.add(e.name);
         }
-    }*/
+    }
 
     @Override
     public void addRune(ItemStack stack, Element rune) {

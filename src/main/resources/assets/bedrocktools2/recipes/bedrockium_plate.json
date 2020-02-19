@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "bedrocktools2:bedrockium_blend"
-  },
-  "result": "bedrocktools2:bedrockium_plate",
-  "experience": 0.1,
-  "cookingtime": 200
-}

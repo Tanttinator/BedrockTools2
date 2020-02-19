@@ -4,6 +4,7 @@ import com.tanttinator.bedrocktools2.capabilities.IRunes;
 import com.tanttinator.bedrocktools2.capabilities.Runes;
 import com.tanttinator.bedrocktools2.capabilities.RunesStorage;
 import com.tanttinator.bedrocktools2.items.BT2Items;
+import com.tanttinator.bedrocktools2.worldgen.BedrockiumOreGen;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.util.text.TextFormatting;
 
 @Mod(modid = BedrockTools2.MOD_ID, name = BedrockTools2.NAME, version = BedrockTools2.VERSION)
@@ -53,8 +55,9 @@ public class BedrockTools2 {
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	//GameRegistry.registerWorldGenerator(generator, 3);
-    	CapabilityManager.INSTANCE.register(IRunes.class, new RunesStorage(), () -> new Runes());
+    	GameRegistry.registerWorldGenerator(new BedrockiumOreGen(), 0);
+        CapabilityManager.INSTANCE.register(IRunes.class, new RunesStorage(), () -> new Runes());
+        GameRegistry.addSmelting(new ItemStack(BT2Items.bedrockium_blend), new ItemStack(BT2Items.bedrockium_plate), 1.0F);
     }
     
     @EventHandler

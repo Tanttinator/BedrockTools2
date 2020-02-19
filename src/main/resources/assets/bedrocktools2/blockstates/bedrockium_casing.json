@@ -1,5 +1,5 @@
 {
     "variants": {
-      "normal": [ {"model": "bedrocktools2:block/bedrockium_casing"} ]
+      "normal": {"model": "bedrocktools2:bedrockium_casing"}
     }
 }

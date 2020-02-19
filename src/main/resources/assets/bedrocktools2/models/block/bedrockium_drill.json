@@ -2,7 +2,7 @@
     "parent": "block/cube_bottom_top",
     "textures": {
         "bottom": "bedrocktools2:block/bedrockium_drill",
-        "top": "block/smooth_stone",
+        "top": "blocks/stone_slab_top",
         "side": "bedrocktools2:block/bedrockium_machine_side_flipped"
     }
 }

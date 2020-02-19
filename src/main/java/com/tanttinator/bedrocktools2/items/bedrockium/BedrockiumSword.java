@@ -15,7 +15,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
 public class BedrockiumSword extends ItemSword implements IUpgradeable {
@@ -24,12 +23,12 @@ public class BedrockiumSword extends ItemSword implements IUpgradeable {
         super(BT2Items.BEDROCKIUM_TOOL_MATERIAL);
     }
     
-    /*@Override
-    public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         for (BedrockTools2.Element e : IUpgradeable.getUpgrades(stack)) {
-            tooltip.add(new StringTextComponent(e.name).applyTextStyle(e.color));
+            tooltip.add(e.name);
         }
-    }*/
+    }
 
     @Override
     public void addRune(ItemStack stack, Element rune) {

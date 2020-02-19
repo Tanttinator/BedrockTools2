@@ -16,14 +16,15 @@ import com.tanttinator.bedrocktools2.items.bedrockium.BedrockiumShovel;
 import com.tanttinator.bedrocktools2.items.bedrockium.BedrockiumSword;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Items;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,19 +36,13 @@ public class BT2Items {
 
     private static List<Item> items = Lists.newArrayList();
 
-    //public static BT2Tier BEDROCK_TIER = new BT2Tier(6000, 5.0F, 1.5F, 4, 15, Ingredient.fromItems(Items.BEDROCK));
-    //public static BT2ArmorTier BEDROCK_ARMOR_TIER = new BT2ArmorTier(132, new int[]{6, 12, 16, 6}, 20, SoundEvents.BLOCK_STONE_PLACE, Ingredient.fromItems(Items.BEDROCK), "bedrock", 4.0F);
-    public static ToolMaterial BEDROCK_TOOL_MATERIAL = ToolMaterial.DIAMOND;
-    public static ArmorMaterial BEDROCK_ARMOR_MATERIAL = ArmorMaterial.DIAMOND;
+    public static ToolMaterial BEDROCK_TOOL_MATERIAL = EnumHelper.addToolMaterial(BedrockTools2.MOD_ID + ":bedrock", 4, 6000, 5.0F, 1.5F, 15).setRepairItem(new ItemStack(Blocks.BEDROCK));
+    public static ArmorMaterial BEDROCK_ARMOR_MATERIAL = EnumHelper.addArmorMaterial(BedrockTools2.MOD_ID + ":bedrock", BedrockTools2.MOD_ID + ":bedrock", 132, new int[]{6, 12, 16, 6}, 20, SoundEvents.BLOCK_STONE_PLACE, 4.0F).setRepairItem(new ItemStack(Blocks.BEDROCK));
     
-    public static ToolMaterial BEDROCKIUM_TOOL_MATERIAL = ToolMaterial.DIAMOND;
-    public static ArmorMaterial BEDROCKIUM_ARMOR_MATERIAL = ArmorMaterial.DIAMOND;
-    
-
     public static final Item bedrockium_plate = register(new Item(), "bedrockium_plate");
-    //public static BT2Tier BEDROCKIUM_TIER = new BT2Tier(18000, 15.0F, 4.0F, 4, 20, Ingredient.fromItems(bedrockium_plate));
-    //public static BT2ArmorTier BEDROCKIUM_ARMOR_TIER = new BT2ArmorTier(396, new int[]{12, 24, 32, 12}, 25, SoundEvents.BLOCK_STONE_PLACE, Ingredient.fromItems(bedrockium_plate), "bedrockium", 6.0F);
-
+    public static ToolMaterial BEDROCKIUM_TOOL_MATERIAL = EnumHelper.addToolMaterial(BedrockTools2.MOD_ID + ":bedrockium", 4, 18000, 15.0f, 4.0F, 20).setRepairItem(new ItemStack(bedrockium_plate));
+    public static ArmorMaterial BEDROCKIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial(BedrockTools2.MOD_ID + ":bedrockium", BedrockTools2.MOD_ID + ":bedrockium", 396, new int[]{12, 24, 32, 12}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 6.0F).setRepairItem(new ItemStack(bedrockium_plate));
+    
     public static final Item diamond_stick = register(new Item(), "diamond_stick");
 
     public static final Item bedrockium_chunks = register(new Item(), "bedrockium_chunks");

@@ -7,12 +7,18 @@ import com.tanttinator.bedrocktools2.BedrockTools2.Element;
 import com.tanttinator.bedrocktools2.items.BT2Items;
 import com.tanttinator.bedrocktools2.items.IUpgradeable;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockTorch;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
 public class BedrockiumAxe extends ItemAxe implements IUpgradeable {
@@ -21,12 +27,12 @@ public class BedrockiumAxe extends ItemAxe implements IUpgradeable {
         super(BT2Items.BEDROCKIUM_TOOL_MATERIAL, 8.0F, -3.0F);
     }
     
-    /*@Override
-    public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         for (BedrockTools2.Element e : IUpgradeable.getUpgrades(stack)) {
-            tooltip.add(new StringTextComponent(e.name).applyTextStyle(e.color));
+            tooltip.add(e.name);
         }
-    }*/
+    }
     
     @Override
     public void addRune(ItemStack stack, Element rune) {
@@ -39,29 +45,23 @@ public class BedrockiumAxe extends ItemAxe implements IUpgradeable {
         }
     }
 
-    /*@Override
-    public ActionResultType onItemUse(ItemUseContext context) {
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        
+        ItemStack item = player.getHeldItem(hand);
 
-        if(!IUpgradeable.HasRune(context.getItem(), Element.FIRE) || context.isPlacerSneaking()) {
-            return super.onItemUse(context);
+        if(!IUpgradeable.HasRune(item, Element.FIRE) || player.isSneaking()) {
+            return super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
         }
 
-        World world = context.getWorld();
-        BlockPos blockpos = context.getPos();
-        BlockState block = world.getBlockState(blockpos);
-        BlockPos offset = blockpos.offset(context.getFace());
-        BlockState offsetBlock = world.getBlockState(offset);
-        if (context.getFace() != Direction.DOWN && block.isSolid() && !offsetBlock.isSolid() && !world.isRemote) {
-            BlockState newState;
-            if(context.getFace() == Direction.UP) {
-                newState = Blocks.TORCH.getDefaultState();
-            } else {
-                newState = Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.HORIZONTAL_FACING, context.getFace());
-            }
-            world.setBlockState(offset, newState);
-            return ActionResultType.SUCCESS;
+        IBlockState block = world.getBlockState(pos);
+        BlockPos offset = pos.offset(facing);
+        IBlockState offsetBlock = world.getBlockState(offset);
+        if (facing != EnumFacing.DOWN && block.isSideSolid(world, pos, facing) && !offsetBlock.causesSuffocation() && !world.isRemote) {
+            world.setBlockState(offset, Block.getBlockFromName("torch").getDefaultState().withProperty(BlockTorch.FACING, facing));
+            return EnumActionResult.SUCCESS;
         }
   
-        return ActionResultType.PASS;
-    }*/
+        return EnumActionResult.PASS;
+    }
 }
