@@ -2,10 +2,25 @@
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/bedrock-tools-2",
     "promos": {
         "1.14.4-latest": "1.2.0",
-        "1.14.4-recommended": "1.2.0"
+        "1.14.4-recommended": "1.2.0",
+        "1.12.2-latest": "1.2.0",
+        "1.12.2-recommended": "1.2.0",
+        "1.12.1-latest": "1.2.0",
+        "1.12.1-recommended": "1.2.0",
+        "1.12-latest": "1.2.0",
+        "1.12-recommended": "1.2.0"
     },
     "1.14.4": {
         "1.2.0": "add bedrockium drill",
         "1.1.0": "add rune upgrades for bedrockium tools + armor"
+    },
+    "1.12.2": {
+        "1.2.0": ""
+    },
+    "1.12.1": {
+        "1.2.0": ""
+    },
+    "1.12": {
+        "1.2.0": ""
     }
 }
