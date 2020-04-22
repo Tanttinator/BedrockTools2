@@ -8,7 +8,6 @@ public class BedrockPickaxe extends ItemPickaxe {
 
 	public BedrockPickaxe() {
 		super(BT2Items.BEDROCK_TOOL_MATERIAL);
-		// TODO Auto-generated constructor stub
 	}
 	
 }
