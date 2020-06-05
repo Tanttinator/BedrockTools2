@@ -1,21 +1,25 @@
 package com.tanttinator.bedrocktools2;
 
 import com.tanttinator.bedrocktools2.blocks.BT2Blocks;
+import com.tanttinator.bedrocktools2.capabilities.IRunes;
+import com.tanttinator.bedrocktools2.capabilities.Runes;
+import com.tanttinator.bedrocktools2.capabilities.RunesStorage;
 import com.tanttinator.bedrocktools2.items.BT2Items;
+import com.tanttinator.bedrocktools2.recipes.RuneUpgradeRecipe;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -51,8 +55,10 @@ public class BedrockTools2 {
     }
 
     public BedrockTools2() {
-        DistExecutor.unsafeRunForDist(() -> () -> new SideProxy.Client(), () -> () -> new SideProxy.Server());
+        //DistExecutor.safeRunForDist(() -> () -> SideProxy.Client::new, () -> () -> SideProxy.Server::new);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+
+        IRecipeSerializer.register(RuneUpgradeRecipe.NAME.toString(), RuneUpgradeRecipe.SERIALIZER);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -60,6 +66,8 @@ public class BedrockTools2 {
         BiomeManager.getBiomes(BiomeManager.BiomeType.DESERT).forEach(this::RegisterBedrockiumOre);
         BiomeManager.getBiomes(BiomeManager.BiomeType.ICY).forEach(this::RegisterBedrockiumOre);
         BiomeManager.getBiomes(BiomeManager.BiomeType.WARM).forEach(this::RegisterBedrockiumOre);
+
+        CapabilityManager.INSTANCE.register(IRunes.class, new RunesStorage(), () -> new Runes());
     }
 
     void RegisterBedrockiumOre(final BiomeManager.BiomeEntry biomeEntry) {
