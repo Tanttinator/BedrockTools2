@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XYX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "Y": {
+      "item": "bedrocktools2:bedrock_tablet"
+    }
+  },
+  "result": {
+    "item": "bedrocktools2:air_rune"
+  }
+}

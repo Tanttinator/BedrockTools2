@@ -1,0 +1,28 @@
+package com.tanttinator.bedrocktools2.items;
+
+import com.tanttinator.bedrocktools2.BedrockTools2;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.Entity;
+import net.minecraftforge.fml.common.Mod;
+
+import javax.annotation.Nonnull;
+
+@Mod.EventBusSubscriber(modid = BedrockTools2.MOD_ID)
+public class BedrockArmor extends ArmorItem {
+    public BedrockArmor(EquipmentSlotType slot) {
+        super(BT2Items.BEDROCK_ARMOR_TIER, slot, new BT2Properties());
+    }
+
+    @Override
+    public String getArmorTexture(@Nonnull ItemStack stack, Entity entity, EquipmentSlotType slot, String layer) {
+
+        String layerId = "1";
+        if(slot == EquipmentSlotType.LEGS){
+            layerId = "2";
+        }
+        return "bedrocktools2:textures/armor/bedrock_layer_" + layerId + ".png";
+    }
+
+}

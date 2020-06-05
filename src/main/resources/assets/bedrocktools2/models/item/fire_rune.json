@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bedrocktools2:item/fire_rune"
+  }
+}
