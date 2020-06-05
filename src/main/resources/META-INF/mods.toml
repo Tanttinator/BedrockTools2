@@ -1,8 +1,8 @@
 modLoader="javafml"
-loaderVersion="[28.1]"
+loaderVersion="[28.2]"
 [[mods]]
 modId="bedrocktools2"
-version="1.2.0"
+version="1.2.2"
 displayName="Bedrock Tools 2"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-tools-2"
 authors="Tanttinator"
