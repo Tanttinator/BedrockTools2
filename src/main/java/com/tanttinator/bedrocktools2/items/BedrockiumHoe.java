@@ -1,9 +1,11 @@
 package com.tanttinator.bedrocktools2.items;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.tanttinator.bedrocktools2.BedrockTools2;
 import com.tanttinator.bedrocktools2.BedrockTools2.Element;
+import com.tanttinator.bedrocktools2.capabilities.RunesProvider;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,12 +16,15 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
 
 public class BedrockiumHoe extends HoeItem implements IUpgradeable {
 
@@ -27,6 +32,27 @@ public class BedrockiumHoe extends HoeItem implements IUpgradeable {
         super(BT2Items.BEDROCKIUM_TIER, attackSpeedIn, new BT2Properties());
     }
 
+    @Override
+    public CompoundNBT getShareTag(ItemStack stack) {
+        CompoundNBT nbt = stack.getOrCreateTag();
+        stack.getCapability(RunesProvider.RUNES).ifPresent(handler -> {
+            nbt.put("runes", Objects.requireNonNull(RunesProvider.RUNES.writeNBT(handler, null)));
+        });
+        return nbt;
+    }
+
+    @Override
+    public void readShareTag(ItemStack stack, CompoundNBT nbt) {
+        super.readShareTag(stack, nbt);
+
+        if(nbt != null) {
+            stack.getCapability(RunesProvider.RUNES).ifPresent(handler -> {
+                RunesProvider.RUNES.readNBT(handler, null, nbt.get("runes"));
+            });
+        }
+    }
+
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         for (BedrockTools2.Element e : IUpgradeable.getUpgrades(stack)) {
