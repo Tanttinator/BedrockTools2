@@ -1,10 +1,10 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/bedrock-tools-2",
   "promos": {
-    "1.15.2-latest": "1.2.3",
-    "1.15.2-recommended": "1.2.3",
-    "1.14.4-latest": "1.2.2",
-    "1.14.4-recommended": "1.2.2",
+    "1.15.2-latest": "1.2.4",
+    "1.15.2-recommended": "1.2.4",
+    "1.14.4-latest": "1.2.4",
+    "1.14.4-recommended": "1.2.4",
     "1.12.2-latest": "1.2.1",
     "1.12.2-recommended": "1.2.1",
     "1.12.1-latest": "1.2.1",
@@ -13,10 +13,12 @@
     "1.12-recommended": "1.2.1"
   },
   "1.15.2": {
+    "1.2.4": "Fixed tooltips crashing on server",
     "1.2.3": "Fixed mod not loading on forge 31.2.0",
     "1.2.2": ""
   },
   "1.14.4": {
+    "1.2.4": "Fixed tooltips crashing on server",
     "1.2.2": "Port to forge 28.2",
     "1.2.0": "Add bedrockium drill",
     "1.1.0": "Add rune upgrades for bedrockium tools + armor"
